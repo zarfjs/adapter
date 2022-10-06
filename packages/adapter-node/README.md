@@ -23,7 +23,6 @@ const server = createServer(app).listen({
 }, (server) => {
     console.log(`Server started on 3000`)
 })
-// Tell how your users can use the package with Zarf
 ```
 
 ## Author
