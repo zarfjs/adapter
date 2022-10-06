@@ -1,14 +1,29 @@
 import { Zarf } from '@zarfjs/zarf'
 
-interface AppLocals {
-    user: string
-}
+const app = new Zarf()
 
-const app = new Zarf<AppLocals>()
-
-app.get("/hello", (ctx) => {
+app.get("/hello/:user", (ctx, params) => {
     return ctx.json({
-        hello: "hello"
+        hello: params.user
+    })
+})
+
+app.get("/hello/:user.:ext", (ctx, params) => {
+    if(params.ext === 'txt') {
+        return ctx.json({
+            hello: params.user
+        })
+    } else {
+        return ctx.text(`Hello, ${params}`)
+    }
+})
+
+app.post("/hello", async(ctx) => {
+    const { request } = ctx
+    const body = await request?.json()
+    // do something with the body
+    return ctx.json({
+        body
     })
 })
 

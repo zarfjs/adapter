@@ -4,7 +4,8 @@ importers:
 
   .:
     specifiers:
-      '@zarfjs/zarf': ^0.0.1-alpha.19
+      '@types/node': ^18.8.2
+      '@zarfjs/zarf': 0.0.1-alpha.20
       bumpp: ^8.2.1
       bun-types: ^0.1.0
       cross-env: ^7.0.3
@@ -17,8 +18,9 @@ importers:
       typescript: ^4.8.4
       vitest: ^0.23.4
     dependencies:
-      '@zarfjs/zarf': 0.0.1-alpha.19
+      '@zarfjs/zarf': 0.0.1-alpha.20
     devDependencies:
+      '@types/node': 18.8.2
       bumpp: 8.2.1
       bun-types: 0.1.11
       cross-env: 7.0.3
@@ -33,15 +35,33 @@ importers:
 
   packages/adapter-node:
     specifiers:
-      '@zarfjs/polyfills': ../polyfills
+      '@types/node': ^18.8.2
+      '@zarfjs/polyfills': link:../polyfills
+      bumpp: ^8.2.1
+      bun-types: ^0.1.11
+      nodemon: ^2.0.20
+      publint: ^0.1.1
+      rimraf: ^3.0.2
+      tsup: ^6.2.3
+      typescript: ^4.8.4
+      vitest: ^0.23.4
     dependencies:
       '@zarfjs/polyfills': link:../polyfills
+    devDependencies:
+      '@types/node': 18.8.2
+      bumpp: 8.2.1
+      bun-types: 0.1.11
+      nodemon: 2.0.20
+      publint: 0.1.1
+      rimraf: 3.0.2
+      tsup: 6.2.3_typescript@4.8.4
+      typescript: 4.8.4
+      vitest: 0.23.4
 
   packages/polyfills:
     specifiers:
       bumpp: ^8.2.1
       bun-types: ^0.1.0
-      nodemon: ^2.0.20
       publint: ^0.1.1
       rimraf: ^3.0.2
       tsup: ^6.2.3
@@ -53,7 +73,6 @@ importers:
     devDependencies:
       bumpp: 8.2.1
       bun-types: 0.1.11
-      nodemon: 2.0.20
       publint: 0.1.1
       rimraf: 3.0.2
       tsup: 6.2.3_typescript@4.8.4
@@ -125,8 +144,8 @@ packages:
     resolution: {integrity: sha512-cRMwIgdDN43GO4xMWAfJAecYn8wV4JbsOGHNfNUIDiuYkUYAR5ec4Rj7IO2SAhFPEfpPtLtUTbbny/TCT7aDwA==}
     dev: true
 
-  /@zarfjs/zarf/0.0.1-alpha.19:
-    resolution: {integrity: sha512-RJZMFCLavDy7rmlL2tQ3aZc4QIhCLjTVjdfTWVYEwR2leEvv5poyPsJGMOq8/dwu0XvHohQzMMtKpnOHqULWdg==}
+  /@zarfjs/zarf/0.0.1-alpha.20:
+    resolution: {integrity: sha512-h6ZT6iKiKCiPX+tu8e/M39JLQO9NI1oi1aIoDG5mQpEuEw7R4gARyO1jlFmXPDRuWrWiZJNeM2pz8K4Or2pUAw==}
     dev: false
 
   /abbrev/1.1.1:
@@ -1644,8 +1663,8 @@ packages:
       busboy: 1.6.0
     dev: false
 
-  /vite/3.1.5:
-    resolution: {integrity: sha512-V4Avke0b7h2zTWVJf8vq6TE3aH061NQ3b1ixHQyqdoE/5HIVsxVLCyTLjJtHVcsJ5fIKSHvOtflWpgavHS8RPw==}
+  /vite/3.1.6:
+    resolution: {integrity: sha512-qMXIwnehvvcK5XfJiXQUiTxoYAEMKhM+jqCY6ZSTKFBKu1hJnAKEzP3AOcnTerI0cMZYAaJ4wpW1wiXLMDt4mA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -1703,7 +1722,7 @@ packages:
       tinybench: 2.3.0
       tinypool: 0.3.0
       tinyspy: 1.0.2
-      vite: 3.1.5
+      vite: 3.1.6
     transitivePeerDependencies:
       - less
       - sass
