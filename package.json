@@ -1,6 +1,6 @@
 {
   "name": "@zarfjs/adapter",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Aftab Alam <one.aalam@gmail.com>",
   "repository": {
     "type": "git",
@@ -36,8 +36,8 @@
     "test:packages": "pnpm -r --stream run test",
     "test:prettier": "prettier --check --ignore-path .gitignore --ignore-unknown . '!pnpm-lock.yaml'",
     "format": "prettier --ignore-path .gitignore --ignore-unknown . '!pnpm-lock.yaml' --write",
-    "release": "bumpp --commit --push --tag && npm publish",
-    "prepublishOnly": "bun run build"
+    "release": "bumpp --commit --push --tag && pnpm publish",
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "bumpp": "^8.2.1",
