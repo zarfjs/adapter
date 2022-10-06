@@ -1,6 +1,6 @@
 {
   "name": "@zarfjs/adapter-node",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "Aftab Alam <one.aalam@gmail.com>",
   "repository": {
     "type": "git",
@@ -32,7 +32,7 @@
     "test": "npm run test:unit && npm run test:pkg",
     "test:unit": "vitest run --reporter=verbose",
     "test:pkg": "publint",
-    "bump": "bumpp --commit --push --no-tag",
+    "bump": "bumpp --commit --push --no-tag --no-git-checks",
     "release": "npm run bump && pnpm publish",
     "prepublishOnly": "npm run build"
   },
