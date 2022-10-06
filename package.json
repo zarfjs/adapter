@@ -1,0 +1,58 @@
+{
+  "name": "@zarfjs/adapter",
+  "version": "0.0.1",
+  "author": "Aftab Alam <one.aalam@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zarfjs/adapter.git"
+  },
+  "bugs": "https://github.com/zarfjs/adapter/issues",
+  "type": "module",
+  "description": "Friends of Zarf. When there are too many friends who are alike :-)",
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/zarfjs/adapter",
+  "keywords": [
+    "bun",
+    "web",
+    "package",
+    "http",
+    "middleware",
+    "monrepo",
+    "pnpm"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "dev": "pnpm -r --parallel --filter=\"./packages/**\" run dev",
+    "build": "pnpm -r --filter=\"./packages/**\" run build",
+    "prepare": "husky install",
+    "precommit": "lint-staged",
+    "test": "pnpm run test:prettier && pnpm run test:packages && pnpm run ci",
+    "ci": "cross-env CI=true pnpm -r --stream run ci",
+    "test:packages": "pnpm -r --stream run test",
+    "test:prettier": "prettier --check --ignore-path .gitignore --ignore-unknown . '!pnpm-lock.yaml'",
+    "format": "prettier --ignore-path .gitignore --ignore-unknown . '!pnpm-lock.yaml' --write",
+    "release": "bumpp --commit --push --tag && npm publish",
+    "prepublishOnly": "bun run build"
+  },
+  "devDependencies": {
+    "bumpp": "^8.2.1",
+    "bun-types": "^0.1.0",
+    "cross-env": "^7.0.3",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "nodemon": "^2.0.20",
+    "publint": "^0.1.1",
+    "rimraf": "^3.0.2",
+    "tsup": "^6.2.3",
+    "typescript": "^4.8.4",
+    "vitest": "^0.23.4"
+  },
+  "dependencies": {
+    "@zarfjs/zarf": "^0.0.1-alpha.19"
+  }
+}
