@@ -33,7 +33,7 @@
     "test:unit": "vitest run --reporter=verbose",
     "test:pkg": "publint",
     "bump": "bumpp --commit --push --no-tag",
-    "release": "npm run bump && pnpm publish",
+    "release": "npm run bump && pnpm publish --no-git-checks",
     "prepublishOnly": "npm run build"
   },
   "exports": "./dist/index.cjs",
