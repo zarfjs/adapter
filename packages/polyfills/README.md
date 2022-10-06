@@ -1,4 +1,4 @@
-# @zarfjs/pkg
+# @zarfjs/polyfills
 
 Friends of [Zarf](https://github.com/zarfjs/zarf). What do you wanna build with `Zarf` today?
 

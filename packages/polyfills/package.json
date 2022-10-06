@@ -28,8 +28,6 @@
     "dev": "nodemon --config nodemon.json",
     "build": "npm run build:tsup --dts-resolve",
     "build:tsup": "tsup",
-    "release": "bumpp --commit --push --tag && npm publish",
-    "prepublishOnly": "npm run build",
     "test:wip": "bun wiptest",
     "test": "npm run test:unit && npm run test:pkg",
     "test:unit": "vitest run --reporter=verbose",
