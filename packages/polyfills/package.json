@@ -31,7 +31,10 @@
     "test:wip": "bun wiptest",
     "test": "npm run test:unit && npm run test:pkg",
     "test:unit": "vitest run --reporter=verbose",
-    "test:pkg": "publint"
+    "test:pkg": "publint",
+    "bump": "bumpp --commit --push --no-tag",
+    "release": "npm run bump && pnpm publish",
+    "prepublishOnly": "npm run build"
   },
   "exports": "./dist/index.cjs",
   "types": "./dist/index.d.ts",
