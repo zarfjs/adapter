@@ -25,7 +25,6 @@
     "access": "public"
   },
   "scripts": {
-    "dev": "nodemon --config nodemon.json",
     "build": "npm run build:tsup --dts-resolve",
     "build:tsup": "tsup",
     "test:wip": "bun wiptest",
@@ -42,7 +41,6 @@
   "devDependencies": {
     "bumpp": "^8.2.1",
     "bun-types": "^0.1.0",
-    "nodemon": "^2.0.20",
     "publint": "^0.1.1",
     "rimraf": "^3.0.2",
     "tsup": "^6.2.3",
