@@ -1,0 +1,52 @@
+{
+  "name": "@zarfjs/adapter-node",
+  "version": "0.0.2",
+  "author": "Aftab Alam <one.aalam@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zarfjs/adapter.git"
+  },
+  "bugs": "https://github.com/zarfjs/adapter/issues",
+  "type": "module",
+  "description": "Node.js Friends of Zarf",
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/zarfjs/adapter",
+  "keywords": [
+    "bun",
+    "web",
+    "package",
+    "http",
+    "middleware"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "dev": "nodemon --config nodemon.json",
+    "build": "npm run build:tsup --dts-resolve",
+    "build:tsup": "tsup",
+    "test:wip": "bun wiptest",
+    "test": "npm run test:unit && npm run test:pkg",
+    "test:unit": "vitest run --reporter=verbose",
+    "test:pkg": "publint"
+  },
+  "exports": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
+  "module": "./dist/index.js",
+  "devDependencies": {
+    "bumpp": "^8.2.1",
+    "bun-types": "^0.1.0",
+    "nodemon": "^2.0.20",
+    "publint": "^0.1.1",
+    "rimraf": "^3.0.2",
+    "tsup": "^6.2.3",
+    "typescript": "^4.8.4",
+    "vitest": "^0.23.4"
+  },
+  "dependencies": {
+    "@zarfjs/polyfills": "../polyfills"
+  }
+}
