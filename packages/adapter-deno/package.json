@@ -1,6 +1,6 @@
 {
   "name": "@zarfjs/adapter-deno",
-  "version": "0.0.6",
+  "version": "1.0.1",
   "author": "Aftab Alam <one.aalam@gmail.com>",
   "repository": {
     "type": "git",
