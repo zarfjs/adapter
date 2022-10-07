@@ -8,7 +8,7 @@ Deno adapter for [Zarf](https://github.com/zarfjs/zarf). Provide a `Zarf` app, a
 ---
 ```ts
 import { Zarf } from "https://deno.land/x/zarf@v0.0.1-alpha.20/index.ts"
-import { createServer } from '../src/index.ts'
+import { createServer } from 'https://deno.land/x/zarfjs_adapter@v1.0.2/index.ts'
 
 const app = new Zarf()
 
