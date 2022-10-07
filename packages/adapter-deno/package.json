@@ -1,0 +1,39 @@
+{
+  "name": "@zarfjs/adapter-deno",
+  "version": "0.0.1",
+  "author": "Aftab Alam <one.aalam@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zarfjs/adapter.git"
+  },
+  "bugs": "https://github.com/zarfjs/adapter/issues",
+  "type": "module",
+  "description": "Deno Friends of Zarf",
+  "main": "index.js",
+  "scripts": {
+    "dev": "deno run --unstable --reload --allow-read --allow-env --allow-net example/app.ts",
+    "build": "rimraf deno_dist && denoify"
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/zarfjs/adapter",
+  "keywords": [
+    "bun",
+    "web",
+    "package",
+    "http",
+    "middleware"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "denoify": "^1.2.0",
+    "rimraf": "^3.0.2"
+  },
+  "denoify": {
+    "index": "src/index.ts"
+  }
+}
