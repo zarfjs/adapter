@@ -34,6 +34,7 @@
     "rimraf": "^3.0.2"
   },
   "denoify": {
-    "index": "src/index.ts"
+    "index": "src/index.ts",
+    "out": "../../deno_dist"
   }
 }
