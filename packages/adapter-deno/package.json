@@ -1,6 +1,6 @@
 {
   "name": "@zarfjs/adapter-deno",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Aftab Alam <one.aalam@gmail.com>",
   "repository": {
     "type": "git",
@@ -12,7 +12,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "deno run --unstable --reload --allow-read --allow-env --allow-net example/app.ts",
-    "build": "rimraf deno_dist && denoify"
+    "build": "rimraf deno_dist && denoify",
+    "release": "bumpp --commit --push --tag"
   },
   "files": [
     "dist"
@@ -30,6 +31,7 @@
     "access": "public"
   },
   "devDependencies": {
+    "bumpp": "^8.2.1",
     "denoify": "^1.2.0",
     "rimraf": "^3.0.2"
   },
