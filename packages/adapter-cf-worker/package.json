@@ -1,0 +1,65 @@
+{
+  "name": "@zarfjs/adapter-cf-worker",
+  "version": "0.0.0",
+  "author": "Aftab Alam <one.aalam@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zarfjs/adapter.git"
+  },
+  "bugs": "https://github.com/zarfjs/adapter/issues",
+  "type": "module",
+  "description": "Cloudflare Worker Friends of Zarf",
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/zarfjs/adapter",
+  "keywords": [
+    "bun",
+    "web",
+    "package",
+    "http",
+    "middleware"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "dev": "wrangler dev ./example/app.ts",
+    "build": "npm run build:tsup --dts-resolve",
+    "build:tsup": "tsup",
+    "test:wip": "bun wiptest",
+    "test": "npm run test:unit && npm run test:pkg",
+    "test:unit": "vitest run --reporter=verbose",
+    "test:pkg": "publint",
+    "bump": "bumpp --commit --push --no-tag",
+    "release": "npm run bump && pnpm publish --no-git-checks",
+    "prepublishOnly": "npm run build"
+  },
+  "types": "./dist/index.d.ts",
+  "module": "./dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
+    },
+    "./static": {
+      "types": "./dist/static.d.ts",
+      "require": "./dist/static.cjs",
+      "import": "./dist/static.js"
+    }
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^3.16.0",
+    "bumpp": "^8.2.1",
+    "publint": "^0.1.1",
+    "rimraf": "^3.0.2",
+    "tsup": "^6.2.3",
+    "typescript": "^4.8.4",
+    "vitest": "^0.23.4"
+  },
+  "dependencies": {
+    "@cloudflare/kv-asset-handler": "^0.2.0"
+  }
+}
