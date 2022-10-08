@@ -6,9 +6,11 @@ Deno adapter for [Zarf](https://github.com/zarfjs/zarf). Provide a `Zarf` app, a
 
 ## Usage
 ---
+
+**Server Listener**
 ```ts
 import { Zarf } from "https://deno.land/x/zarf@v0.0.1-alpha.20/index.ts"
-import { createServer } from '../src/index.ts'
+import { createServer } from 'https://deno.land/x/zarfjs_adapter@v1.0.2/index.ts'
 
 const app = new Zarf()
 
@@ -24,6 +26,17 @@ createServer(app).listen({
     console.log(`Server started on ${server.port}`)
 })
 ```
+
+### Run Examples
+```
+deno run --unstable --reload --allow-read --allow-env --allow-net --watch example/app-deploy.ts
+```
+
+```
+deno run --unstable --reload --allow-read --allow-env --allow-net --watch example/app.ts
+```
+**Serve**
+deployctl deploy --project=zarf example/app-deploy.ts --token=xxxxx
 
 ## Author
 ---

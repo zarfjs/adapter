@@ -1,5 +1,5 @@
 import type { Zarf } from "https://deno.land/x/zarf@v0.0.1-alpha.20/index.ts"
-
+import * as flags from "https://deno.land/std/flags/mod.ts";
 export interface ListenerOptions {
     port?: number,
     development?: boolean,
@@ -40,6 +40,29 @@ function getPort() {
 }
 
 export function createServer(app: Zarf, options?: HttpsOptions): { listen: (options: ListenerOptions, startedCb?: ListenerCallback) => Promise<DenoServer|void>} {
+
+    if (self.location.protocol === 'https:' || self.location.port === '433') {
+        const { cert: certFile, key: keyFile } = flags.parse(Deno.args, {
+          alias: {
+            cert: ['c', 'cert-file'],
+            key: ['k', 'key-file'],
+          }
+        });
+
+        if (!certFile || !keyFile) {
+          throw new Error(`When using HTTPS or port 443, a --cert and --key are required.`);
+        }
+        if(!options) {
+            options = { certFile, keyFile }
+        } else {
+            options = { certFile, keyFile }
+        }
+    }
+
+    if(options && !options.certFile || !options?.keyFile) {
+        throw new Error(`When using HTTPS options, the path to cert and key files are required.`);
+    }
+
     return {
         async listen(opts?: ListenerOptions, startedCb?: ListenerCallback) {
             const {
@@ -58,7 +81,7 @@ export function createServer(app: Zarf, options?: HttpsOptions): { listen: (opti
                 try {
                     const server = httpsOptions ? Deno.listenTls({
                         hostname,
-                        port,
+                        port: 443,
                         certFile: httpsOptions.certFile,
                         keyFile: httpsOptions.keyFile,
                         alpnProtocols: ["h2", "http/1.1"],
@@ -79,7 +102,7 @@ export function createServer(app: Zarf, options?: HttpsOptions): { listen: (opti
                             }
                         })
                         for await (const requestEvent of httpConn) {
-                        await requestEvent.respondWith(app.handle(requestEvent.request) as Response | Promise<Response>).catch((err: any ) => console.log(err));
+                            await requestEvent.respondWith(app.handle(requestEvent.request) as Response | Promise<Response>).catch((err: any ) => console.log(err));
                         }
                     }
 
