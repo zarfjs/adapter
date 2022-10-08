@@ -1,5 +1,6 @@
+import { serve } from "https://deno.land/std@0.158.0/http/server.ts"
 import { Zarf } from "https://deno.land/x/zarf@v0.0.1-alpha.20/index.ts"
-import { createServer } from 'https://deno.land/x/zarfjs_adapter@v1.0.2/index.ts'
+import { createAdapter } from "../src/static.ts"
 
 const app = new Zarf()
 
@@ -34,11 +35,7 @@ app.get("/", (ctx) => {
     return ctx.html(`Welcome to Zarf Deno App server`)
 })
 
-createServer(app).listen({
-    port: 3000
-}, (server) => {
-    console.log(`will close the server in 1s`)
-    setTimeout(async () => {
-        await server.stop()
-    }, 6 * 1000);
-})
+// @ts-ignore: due to incompatibility of response types - Promise<Response | undefined> -> Promise<Response>
+await serve(createAdapter(app, {
+    forwardOnError: true
+}));

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css"/>
+    <title>Deno Deploy App</title>
+</head>
+<body>
+    <img width="100" height="auto" src="./immutable/logo-banner.png" alt="logo" />
+
+    <form method="POST" action="/hello" enctype="multipart/form-data">
+        <label for="i-fullname">Full Name</label>
+        <input id="i-fullname" type="text" name="fullname" pattern="[A-Za-z]+" required />
+
+        <label for="i-email">Email Address</label>
+        <input id="i-email" type="email" name="email" required />
+
+        <label for="i-age">Your Age</label>
+        <input id="i-age" type="number" name="age" min="18" required />
+
+        <button type="submit">Submit</button>
+    </form>
+    <script src="./js/main.js"></script>
+</body>
+</html>
